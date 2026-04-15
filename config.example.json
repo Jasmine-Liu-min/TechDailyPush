@@ -1,0 +1,17 @@
+{
+  "email": {
+    "smtp_server": "smtp.qq.com",
+    "smtp_port": 465,
+    "sender": "your_email@qq.com",
+    "password": "your_auth_code_here",
+    "receiver": "your_email@qq.com"
+  },
+  "sources": {
+    "producthunt": true,
+    "hackernews": true,
+    "github_trending": true,
+    "36kr": true
+  },
+  "schedule": "08:00",
+  "top_n": 10
+}
