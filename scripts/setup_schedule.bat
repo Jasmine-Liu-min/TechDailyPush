@@ -1,7 +1,8 @@
 @echo off
-schtasks /create /tn "TechDaily" /tr "python \"%~dp0..\daily.py\"" /sc daily /st 08:00 /f
+schtasks /delete /tn "TechDaily" /f >nul 2>&1
+schtasks /create /tn "TechDaily" /tr "\"D:\Program Files\Python\python313\python.exe\" \"C:\Users\AS\TechDailyPush\daily.py\"" /sc daily /st 09:45 /rl highest /f
 if %errorlevel%==0 (
-    echo OK - Task TechDaily created, runs daily at 08:00
+    echo OK - Task TechDaily created, runs daily at 09:45
     echo.
     echo View:   double click check_schedule.bat
     echo Run:    double click run_now.bat

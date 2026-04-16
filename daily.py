@@ -21,6 +21,18 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def load_config():
+    # 优先从环境变量读取（GitHub Actions 等云端环境）
+    if os.environ.get("SENDER"):
+        return {
+            "email": {
+                "smtp_server": os.environ.get("SMTP_SERVER", "smtp.qq.com"),
+                "smtp_port": int(os.environ.get("SMTP_PORT", "465")),
+                "sender": os.environ["SENDER"],
+                "password": os.environ["PASSWORD"],
+                "receiver": os.environ.get("RECEIVER", os.environ["SENDER"]),
+            },
+            "top_n": 10,
+        }
     with open(os.path.join(DIR, "config.json"), "r", encoding="utf-8") as f:
         return json.load(f)
 
