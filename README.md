@@ -79,6 +79,26 @@ python daily.py
 
 ## 定时自动发送
 
+### 方式一：GitHub Actions（推荐，不用开电脑）
+
+代码推送到 GitHub 后，每天自动在云端运行推送，无需本地开机。
+
+1. 打开仓库 **Settings → Secrets and variables → Actions**
+2. 点 **New repository secret**，依次添加：
+
+   | Name | Value |
+   |---|---|
+   | `SMTP_SERVER` | `smtp.qq.com` |
+   | `SMTP_PORT` | `465` |
+   | `SENDER` | 你的发件邮箱 |
+   | `PASSWORD` | 邮箱授权码 |
+   | `RECEIVER` | 接收邮箱 |
+
+3. 完成后去 **Actions** 页面，点 **Tech Daily Push → Run workflow** 手动触发测试
+4. 成功后每天北京时间 09:45 自动推送
+
+### 方式二：Windows 定时任务（需要电脑开机）
+
 ### 开启定时任务
 
 **右键 `setup_schedule.bat` → 以管理员身份运行**
